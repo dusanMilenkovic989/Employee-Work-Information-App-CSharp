@@ -1,0 +1,40 @@
+@model IEnumerable<dynamic>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var property in Model.First().GetType().GetProperties())
+                {
+                    <th>@property.Name</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr class="@(employee.TotalTimeWorked < 100 ? "table-danger" : "")">
+                    @foreach (var property in employee.GetType().GetProperties())
+                    {
+                        <td>
+                            @if (property.Name == "TotalTimeWorked")
+                            {
+                                var value = property.GetValue(employee);
+                                <span>@($"{value} hrs")</span>
+                            }
+                            else
+                            {
+                                <span>@property.GetValue(employee)</span>
+                            }
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-secondary lead">No data available</p>
+}
