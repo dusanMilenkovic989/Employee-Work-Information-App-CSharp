@@ -1,5 +1,5 @@
 const ALL_EMPLOYEES_ROUTE = 'http://localhost:5000/employees/all'
-const GENERATE_TABLE_ROUTE = 'http://localhost:5000/Dashboard/GenerateTable'
+const GENERATE_TABLE_ROUTE = 'http://localhost:5000/Dashboard/GenerateTableAndChart'
 
 document.addEventListener('DOMContentLoaded', () => 
 {

@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddHttpClient<IHttpService, HttpService>();
 builder.Services.AddSingleton<IEmployeeInformationFormatService, EmployeeInformationFormatService>();
+builder.Services.AddSingleton<IChartService, ChartService>();
 
 var app = builder.Build();
 
